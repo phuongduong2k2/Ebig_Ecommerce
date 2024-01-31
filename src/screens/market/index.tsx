@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import MainAppHeader from '../../components/MainAppHeader/MainAppHeader';
-import useAppNavigation from '../../navigation/RootStackParamList';
+import useAppNavigation from '../../navigation/rootStackParamList';
 import ListTag from '../../components/ListTag';
 import {AppColors} from '../../constants/AppColors';
 import ListCardHorizontal from '../../components/ListCardHorizontal';
@@ -21,7 +21,7 @@ import AppTextStyles from '../../constants/AppTextStyles';
 import AppImageLazy from '../../components/AppImageLazy/AppImageLazy';
 import AppButton from '../../components/AppButton';
 import Rating from '../../components/Rating/Rating';
-import GroupListProduct from './components/GroupListProduct';
+import GroupListProduct from './components/groupListProduct';
 import OptimizeHeavyScreen from '../../components/OptimizeHeavyScreen/OptimizeHeavyScreen';
 
 const demoData = [

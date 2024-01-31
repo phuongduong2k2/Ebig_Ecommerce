@@ -3,7 +3,7 @@ import React from 'react';
 
 type Props = {};
 
-const ProfleScreen = (props: Props) => {
+const ProfileScreen = (props: Props) => {
   return (
     <View>
       <Text>ProfleScreen</Text>
@@ -11,4 +11,4 @@ const ProfleScreen = (props: Props) => {
   );
 };
 
-export default ProfleScreen;
+export default ProfileScreen;

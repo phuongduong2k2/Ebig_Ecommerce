@@ -3,8 +3,9 @@ import React from 'react';
 import AppButton from '../AppButton';
 import {AppColors} from '../../constants/AppColors';
 import AppTextStyles from '../../constants/AppTextStyles';
-import TopicCardItem from '../../screens/market/components/TopicCardItem';
-import TopicCardItemSkeleton from '../../screens/market/components/TopicCardItemSkeleton';
+
+import TopicCardItemSkeleton from '../../screens/market/components/topicCardItemSkeleton';
+import TopicCardItem from '../../screens/market/components/topicCardItem';
 
 type DataProp = {
   id: string;

@@ -5,7 +5,7 @@ import AppTextStyles from '../../constants/AppTextStyles';
 import {AppColors} from '../../constants/AppColors';
 import AppSvg from '../AppSvg';
 import {AppIcons} from '../../constants/AppIcons';
-import useAppNavigation from '../../navigation/RootStackParamList';
+import useAppNavigation from '../../navigation/rootStackParamList';
 import {useRoute} from '@react-navigation/core';
 import AppImageLazy from '../AppImageLazy/AppImageLazy';
 
