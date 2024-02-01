@@ -6,6 +6,7 @@ import MarketScreen from '../screens/market';
 import AllCategoryScreen from '../screens/market/views/allCategoryScreen';
 import CategoryScreen from '../screens/market/views/categoryScreen';
 import BottomTabNavigation from './bottomTabNavigation';
+import MarketDetailScreen from '../screens/market/views/marketDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,10 @@ const MainNavigation: React.FC = () => {
           <Stack.Screen
             name="AllCategoryScreen"
             component={AllCategoryScreen}
+          />
+          <Stack.Screen
+            name="MarketDetailScreen"
+            component={MarketDetailScreen}
           />
           <Stack.Screen name="CategoryScreen" component={CategoryScreen} />
         </Stack.Navigator>

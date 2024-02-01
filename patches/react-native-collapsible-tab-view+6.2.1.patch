@@ -1,0 +1,101 @@
+diff --git a/node_modules/react-native-collapsible-tab-view/lib/typescript/src/types.d.ts b/node_modules/react-native-collapsible-tab-view/lib/typescript/src/types.d.ts
+index a5041df..3685fd4 100644
+--- a/node_modules/react-native-collapsible-tab-view/lib/typescript/src/types.d.ts
++++ b/node_modules/react-native-collapsible-tab-view/lib/typescript/src/types.d.ts
+@@ -11,6 +11,8 @@ export declare type RefHandler<T extends TabName = TabName> = {
+     setIndex: (index: number) => boolean;
+     getFocusedTab: () => T;
+     getCurrentIndex: () => number;
++    getCurrentScroll:() => number;
++    getHeight:() => {header:number, tabBar:number}
+ };
+ export declare type CollapsibleRef<T extends TabName = TabName> = RefHandler<T> | undefined;
+ export declare type TabBarProps<T extends TabName = TabName> = {
+diff --git a/node_modules/react-native-collapsible-tab-view/src/Container.tsx b/node_modules/react-native-collapsible-tab-view/src/Container.tsx
+index 1023290..b4f302f 100644
+--- a/node_modules/react-native-collapsible-tab-view/src/Container.tsx
++++ b/node_modules/react-native-collapsible-tab-view/src/Container.tsx
+@@ -255,6 +255,7 @@ export const Container = React.memo(
+       }, [revealHeaderOnScroll])
+ 
+       const stylez = useAnimatedStyle(() => {
++
+         return {
+           transform: [
+             {
+@@ -341,6 +342,16 @@ export const Container = React.memo(
+           getCurrentIndex: () => {
+             return index.value
+           },
++          getCurrentScroll:() => {
++            const header = headerHeight.value ?? 0;
++            const tabBar = tabBarHeight.value ?? 0;
++            return scrollYCurrent.value - (header + tabBar)
++          },
++          getHeight: () => {
++            const header = headerHeight.value ?? 0;
++            const tabBar = tabBarHeight.value ?? 0;
++            return {header,tabBar}
++          }
+         }),
+         // eslint-disable-next-line react-hooks/exhaustive-deps
+         [onTabPress]
+diff --git a/node_modules/react-native-collapsible-tab-view/src/ScrollView.tsx b/node_modules/react-native-collapsible-tab-view/src/ScrollView.tsx
+index 65bbf55..37404e2 100644
+--- a/node_modules/react-native-collapsible-tab-view/src/ScrollView.tsx
++++ b/node_modules/react-native-collapsible-tab-view/src/ScrollView.tsx
+@@ -1,4 +1,4 @@
+-import React from 'react'
++import React, { useEffect } from 'react'
+ import { ScrollViewProps, ScrollView as RNScrollView } from 'react-native'
+ import Animated from 'react-native-reanimated'
+ 
+@@ -51,14 +51,14 @@ export const ScrollView = React.forwardRef<
+     passRef
+   ) => {
+     const name = useTabNameContext()
+-    const ref = useSharedAnimatedRef<RNScrollView>(passRef)
++    const ref = useSharedAnimatedRef<any>(passRef)
+     const { setRef, contentInset } = useTabsContext()
+     const {
+       style: _style,
+       contentContainerStyle: _contentContainerStyle,
+       progressViewOffset,
+     } = useCollapsibleStyle()
+-    const { scrollHandler, enable } = useScrollHandlerY(name)
++    const { scrollHandler, enable,scrollYCurrent } = useScrollHandlerY(name)
+     const onLayout = useAfterMountEffect(rest.onLayout, () => {
+       'worklet'
+       // we enable the scroll event after mounting
+@@ -112,11 +112,18 @@ export const ScrollView = React.forwardRef<
+     )
+     const memoStyle = React.useMemo(() => [_style, style], [_style, style])
+ 
++    useEffect(() => {
++      ref.current.getCurrentScroll = () => {
++        return scrollYCurrent.value
++      }
++    },[name])
++
+     return (
+       <ScrollViewMemo
+         {...rest}
+         onLayout={onLayout}
+         ref={ref}
++
+         bouncesZoom={false}
+         style={memoStyle}
+         contentContainerStyle={memoContentContainerStyle}
+diff --git a/node_modules/react-native-collapsible-tab-view/src/hooks.tsx b/node_modules/react-native-collapsible-tab-view/src/hooks.tsx
+index 75e9c9f..233bc37 100644
+--- a/node_modules/react-native-collapsible-tab-view/src/hooks.tsx
++++ b/node_modules/react-native-collapsible-tab-view/src/hooks.tsx
+@@ -509,7 +509,7 @@ export const useScrollHandlerY = (name: TabName) => {
+     [revealHeaderOnScroll, refMap, snapThreshold, tabIndex, enabled, scrollTo]
+   )
+ 
+-  return { scrollHandler, enable }
++  return { scrollHandler, enable,scrollYCurrent }
+ }
+ 
+ type ForwardRefType<T> =

@@ -7,9 +7,9 @@ import React, {
   useState,
 } from 'react';
 import {Animated, Button, Text, TouchableOpacity, View} from 'react-native';
-import {AppDimentions, AppSnackBarStatus} from '../../constants/constants';
 import {AppIcons} from '../../constants/AppIcons';
 import AppSvg from '../AppSvg';
+import {AppDimentions, AppSnackBarStatus} from '../../constants/constants';
 
 const ref = createRef();
 
@@ -29,8 +29,6 @@ const AppSnackBar = forwardRef((props, ref) => {
   const [iconState, setIcon] = useState(undefined);
 
   const iCount = useRef(0);
-
-  const propsRef = createRef(ref);
 
   const animated = useRef(new Animated.Value(0)).current;
 
