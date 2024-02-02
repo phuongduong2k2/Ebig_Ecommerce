@@ -3,12 +3,12 @@ import React from 'react';
 
 type Props = {};
 
-const ProfileScreen = (props: Props) => {
+const ProfileTab = (props: Props) => {
   return (
     <View>
-      <Text>ProfleScreen</Text>
+      <Text>ProfleTab</Text>
     </View>
   );
 };
 
-export default ProfileScreen;
+export default ProfileTab;

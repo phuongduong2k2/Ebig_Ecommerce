@@ -4,8 +4,8 @@ import AppButton from '../AppButton';
 import {AppColors} from '../../constants/AppColors';
 import AppTextStyles from '../../constants/AppTextStyles';
 
-import TopicCardItemSkeleton from '../../screens/market/components/topicCardItemSkeleton';
-import TopicCardItem from '../../screens/market/components/topicCardItem';
+import TopicCardItemSkeleton from '../../screens/marketTab/components/topicCardItemSkeleton';
+import TopicCardItem from '../../screens/marketTab/components/topicCardItem';
 
 type DataProp = {
   id: string;

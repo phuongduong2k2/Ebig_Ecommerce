@@ -5,7 +5,7 @@ type TopicScreenParams = {name: string; pictureId: string; id: string};
 
 export type RootStackParamList = {
   MarketBottomTab: {};
-  MarketScreen: {};
+  MarketTab: {};
   SearchMarketScreen: {};
   MarketDetailScreen: {} | undefined;
   ExpertProfileScreen: {} | undefined;

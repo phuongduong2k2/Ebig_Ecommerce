@@ -44,7 +44,7 @@ const demoData = [
 ];
 
 interface Props {}
-const MarketScreen = (props: Props) => {
+const MarketTab = (props: Props) => {
   const navigation = useAppNavigation();
 
   // const [isDone, setDone] = useState(false);
@@ -153,7 +153,7 @@ const MarketScreen = (props: Props) => {
 
   return (
     <View style={{flex: 1}}>
-      <MainAppHeader title={'MarketScreen'} />
+      <MainAppHeader title={'MarketTab'} />
       <OptimizeHeavyScreen>
         <View style={{flex: 1, width: '100%'}}>
           <ListTag
@@ -408,4 +408,4 @@ const MarketScreen = (props: Props) => {
   );
 };
 
-export default MarketScreen;
+export default MarketTab;

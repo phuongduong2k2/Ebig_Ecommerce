@@ -1,7 +1,8 @@
 const ScreenNames = {
   MarketBottomTab: 'MarketBottomTab',
-  MarketScreen: 'MarketScreen',
-  SearchMarketScreen: 'SearchMarketScreen',
+  MarketTab: 'MarketTab',
+  SearchTab: 'SearchTab',
+  ProfileTab: 'ProfileTab',
 };
 
 export default ScreenNames;

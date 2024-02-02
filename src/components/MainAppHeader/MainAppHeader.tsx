@@ -1,96 +1,38 @@
-import {View, Text, TouchableOpacity, Image, ViewStyle} from 'react-native';
-import React, {useState} from 'react';
+import {View, Text, FlatList, ListRenderItem} from 'react-native';
+import React, {ReactNode, useState} from 'react';
 import {AppIcons} from '../../constants/AppIcons';
-import MainAppHeaderProps from './type';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
-import AppSvg from '../AppSvg';
+import {useNavigation} from '@react-navigation/native';
 import {AppColors} from '../../constants/AppColors';
 import AppTextStyles from '../../constants/AppTextStyles';
-import FilterMarketModal from './FilterMarket';
+import NotiItem from './NotiItem';
 
 interface Props {
   title?: string;
-  type?: 'Market' | 'Social' | 'Course';
+  rightContentComponent?: () => ReactNode;
 }
-type NotiProps = {
-  quantity?: number;
-  icon: SVGElement;
-  style?: ViewStyle;
-  onPress?: () => void;
-};
+
+const listItemHeader = [
+  {id: 0, name: 'Cart', icon: AppIcons.icon_shopping_cart, quantity: 10},
+  {id: 1, name: 'Notification', icon: AppIcons.icon_bell, quantity: 10},
+  {id: 2, name: 'Chat', icon: AppIcons.icon_chat, quantity: 10},
+];
 
 const MainAppHeader = (props: Props) => {
-  const {title, type} = props;
+  const {title, rightContentComponent = null} = props;
 
   const navigation = useNavigation();
 
-  const NotiItem = (data: NotiProps) => {
-    const {quantity, icon, style, onPress = () => {}} = data;
+  const renderItem: ListRenderItem<any> = ({item}) => {
     return (
-      <TouchableOpacity
-        style={{
-          minHeight: 24,
-          minWidth: 24,
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100%',
-          ...style,
+      <NotiItem
+        onPress={() => {
+          console.log(item.name);
         }}
-        onPress={onPress}>
-        <View>
-          {quantity && (
-            <View
-              style={{
-                position: 'absolute',
-                right: -6,
-                top: -8,
-                borderWidth: 2,
-                borderColor: 'white',
-                borderRadius: 100,
-                zIndex: 1,
-                height: 18,
-                width: 18,
-              }}>
-              <View
-                style={{
-                  backgroundColor: '#ED2011',
-                  height: '100%',
-                  width: '100%',
-                  borderRadius: 1000,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <Text
-                  style={{
-                    ...AppTextStyles.subtitle4,
-                    color: AppColors.darkTheme.title,
-                    position: 'absolute',
-                    textAlign: 'center',
-                  }}>
-                  {quantity.toString()}
-                </Text>
-              </View>
-            </View>
-          )}
-          <AppSvg SvgSrc={icon} size={24} />
-        </View>
-      </TouchableOpacity>
-    );
-  };
-
-  const [isVisibleFilterModal, setVisibleFilterModal] = useState(false);
-
-  const renderComboAction = () => {
-    return (
-      <>
-        <NotiItem
-          icon={AppIcons.icon_setup_preferences}
-          style={{paddingHorizontal: 8}}
-          onPress={() => {
-            setVisibleFilterModal(true);
-          }}
-        />
-      </>
+        key={item.id}
+        icon={item.icon}
+        quantity={item.quantity}
+        style={{paddingHorizontal: 8}}
+      />
     );
   };
 
@@ -98,18 +40,12 @@ const MainAppHeader = (props: Props) => {
     <View
       style={{
         height: 56,
-        paddingHorizontal: 16,
+        paddingLeft: 16,
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: 'white',
         zIndex: 1,
       }}>
-      <FilterMarketModal
-        isVisible={isVisibleFilterModal}
-        onCloseModal={() => {
-          setVisibleFilterModal(false);
-        }}
-      />
       <Text
         style={{
           ...AppTextStyles.title1,
@@ -119,8 +55,19 @@ const MainAppHeader = (props: Props) => {
         numberOfLines={1}>
         {title}
       </Text>
-      <View style={{flexDirection: 'row', height: '100%'}}>
-        {renderComboAction()}
+      <View>
+        {rightContentComponent ? (
+          rightContentComponent()
+        ) : (
+          <FlatList
+            horizontal
+            data={listItemHeader}
+            keyExtractor={item => item.id.toString()}
+            renderItem={renderItem}
+            contentContainerStyle={{paddingRight: 8}}
+            scrollEnabled={false}
+          />
+        )}
       </View>
     </View>
   );

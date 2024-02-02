@@ -2,14 +2,14 @@ import {View, Text, ImageSourcePropType, Image} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ScreenNames from '../constants/ScreenNames';
-import MarketScreen from '../screens/market';
 import {AppIcons} from '../constants/AppIcons';
 import AppImages from '../constants/AppImages';
 import {AppColors} from '../constants/AppColors';
 import AppSvg from '../components/AppSvg';
 import AppTextStyles from '../constants/AppTextStyles';
-import SearchScreen from '../screens/search';
-import ProfileScreen from '../screens/profile';
+import MarketTab from '../screens/marketTab';
+import SearchTab from '../screens/searchTab';
+import ProfileTab from '../screens/profileTab';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,8 +31,8 @@ interface ScreenDataItem {
 const screenSocialData: ScreenDataItem[] = [
   {
     title: 'Market',
-    name: 'MarketScreen',
-    component: MarketScreen,
+    name: ScreenNames.MarketTab,
+    component: MarketTab,
     icon: {
       active: AppIcons.icon_shop_active,
       inactive: AppIcons.icon_shop,
@@ -40,8 +40,8 @@ const screenSocialData: ScreenDataItem[] = [
   },
   {
     title: 'Tìm kiếm',
-    name: 'SearchScreen',
-    component: SearchScreen,
+    name: ScreenNames.SearchTab,
+    component: SearchTab,
     icon: {
       active: AppIcons.icon_search_active,
       inactive: AppIcons.icon_search,
@@ -49,8 +49,8 @@ const screenSocialData: ScreenDataItem[] = [
   },
   {
     title: 'Hồ sơ',
-    name: 'ProfileScreen',
-    component: ProfileScreen,
+    name: ScreenNames.ProfileTab,
+    component: ProfileTab,
     icon: {
       active: AppIcons.icon_user_profile,
       inactive: AppIcons.icon_user_profile,

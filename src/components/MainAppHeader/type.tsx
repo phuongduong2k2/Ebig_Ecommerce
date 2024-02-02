@@ -1,4 +1,6 @@
-export default interface MainAppHeaderProps {
+import {ViewStyle} from 'react-native';
+
+export interface MainAppHeaderProps {
   /**
    * Tiêu đề
    */

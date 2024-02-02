@@ -2,11 +2,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import MarketScreen from '../screens/market';
-import AllCategoryScreen from '../screens/market/views/allCategoryScreen';
-import CategoryScreen from '../screens/market/views/categoryScreen';
+import MarketScreen from '../screens/marketTab';
+import AllCategoryScreen from '../screens/marketTab/views/allCategoryScreen';
+import CategoryScreen from '../screens/marketTab/views/categoryScreen';
 import BottomTabNavigation from './bottomTabNavigation';
-import MarketDetailScreen from '../screens/market/views/marketDetailScreen';
+import MarketDetailScreen from '../screens/marketTab/views/marketDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
