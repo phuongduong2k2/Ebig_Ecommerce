@@ -12,6 +12,9 @@ export type RootStackParamList = {
   SearchingMarketScreen: {} | undefined;
   AllCategoryScreen: {} | undefined;
   CategoryScreen: {} | undefined;
+  SearchScreen: {} | undefined;
+  AuthorScreen: {} | undefined;
+  PostDetailScreen: {title: string; image: any};
 };
 
 const useAppNavigation = () => {

@@ -3,10 +3,13 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import MarketScreen from '../screens/marketTab';
-import AllCategoryScreen from '../screens/marketTab/views/allCategoryScreen';
-import CategoryScreen from '../screens/marketTab/views/categoryScreen';
+import AllCategoryScreen from '../screens/views/allCategoryScreen';
+import CategoryScreen from '../screens/views/categoryScreen';
 import BottomTabNavigation from './bottomTabNavigation';
-import MarketDetailScreen from '../screens/marketTab/views/marketDetailScreen';
+import MarketDetailScreen from '../screens/views/marketDetailScreen';
+import SearchScreen from '../screens/views/searchScreen';
+import AuthorScreen from '../screens/views/authorScreen';
+import PostDetailScreen from '../screens/views/postDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +35,13 @@ const MainNavigation: React.FC = () => {
             name="MarketDetailScreen"
             component={MarketDetailScreen}
           />
+          <Stack.Screen name="SearchScreen" component={SearchScreen} />
+          <Stack.Screen
+            name="PostDetailTabScreen"
+            component={PostDetailScreen}
+          />
           <Stack.Screen name="CategoryScreen" component={CategoryScreen} />
+          <Stack.Screen name="AuthorScreen" component={AuthorScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>

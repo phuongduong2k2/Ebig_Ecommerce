@@ -8,10 +8,11 @@ import AppTextStyles from '../../constants/AppTextStyles';
 type Props = {
   title?: string;
   containerStyle?: ViewStyle;
+  onPress?: () => void;
 };
 
 const SearchButton = (props: Props) => {
-  const {containerStyle = {}, title = 'Title'} = props;
+  const {containerStyle = {}, title = 'Title', onPress = () => {}} = props;
   return (
     <View
       style={{
@@ -22,6 +23,7 @@ const SearchButton = (props: Props) => {
         ...containerStyle,
       }}>
       <TouchableOpacity
+        onPress={onPress}
         activeOpacity={0.6}
         style={{
           borderRadius: 8,

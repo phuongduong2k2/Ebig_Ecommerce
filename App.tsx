@@ -4,6 +4,7 @@ import {Platform, StatusBar} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import MainNavigation from './src/navigation';
+import ShareModal from './src/components/ShareModal/ShareModal';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       />
       <SafeAreaProvider>
         <MainNavigation />
+        <ShareModal />
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

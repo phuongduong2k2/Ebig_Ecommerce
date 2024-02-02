@@ -7,20 +7,20 @@ import {
   ListRenderItem,
 } from 'react-native';
 import React, {useRef} from 'react';
-import AppHeader from '../../../../components/AppHeader';
-import AppSvg from '../../../../components/AppSvg';
-import {AppIcons} from '../../../../constants/AppIcons';
+import AppHeader from '../../../components/AppHeader';
+import AppSvg from '../../../components/AppSvg';
+import {AppIcons} from '../../../constants/AppIcons';
 import {CollapsibleRef, Tabs} from 'react-native-collapsible-tab-view';
-import AppDivider from '../../../../components/AppDivider';
-import AppImages from '../../../../constants/AppImages';
-import AppTextStyles from '../../../../constants/AppTextStyles';
-import {AppColors} from '../../../../constants/AppColors';
+import AppDivider from '../../../components/AppDivider';
+import AppImages from '../../../constants/AppImages';
+import AppTextStyles from '../../../constants/AppTextStyles';
+import {AppColors} from '../../../constants/AppColors';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import AppButton from '../../../../components/AppButton';
-import RatingGroup from '../../../../components/Rating/RatingGroup';
-import {ShareModalUtils} from '../../../../components/ShareModal/ShareModal';
-import CustomTabBar from '../../../../components/CustomTabBar';
-import useAppNavigation from '../../../../navigation/rootStackParamList';
+import AppButton from '../../../components/AppButton';
+import RatingGroup from '../../../components/Rating/RatingGroup';
+import {ShareModalUtils} from '../../../components/ShareModal/ShareModal';
+import CustomTabBar from '../../../components/CustomTabBar';
+import useAppNavigation from '../../../navigation/rootStackParamList';
 
 const ProductDescription = () => {
   return (
@@ -188,7 +188,7 @@ const Seller = () => {
       <View style={{paddingHorizontal: 16}}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('ExpertProfileScreen');
+            navigation.navigate('AuthorScreen');
           }}
           style={{
             flexDirection: 'row',

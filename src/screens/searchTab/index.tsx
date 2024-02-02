@@ -5,6 +5,7 @@ import SearchButton from '../../components/SearchButton';
 import ListTag from '../../components/ListTag';
 import {AppColors} from '../../constants/AppColors';
 import GroupListProduct from '../marketTab/components/groupListProduct';
+import useAppNavigation from '../../navigation/rootStackParamList';
 
 type Props = {};
 
@@ -28,10 +29,16 @@ const listTagData = [
 ];
 
 const SearchTab = (props: Props) => {
+  const navigation = useAppNavigation();
   return (
     <View style={{flex: 1}}>
       <MainSearchTabHeader title="Tìm kiếm sản phẩm" />
-      <SearchButton title="Tìm kiếm" />
+      <SearchButton
+        title="Tìm kiếm"
+        onPress={() => {
+          navigation.navigate('SearchScreen');
+        }}
+      />
       <ListTag
         containerStyle={{backgroundColor: 'white', height: 48}}
         itemStyle={{backgroundColor: AppColors.lightTheme.grey1}}
@@ -56,6 +63,28 @@ const SearchTab = (props: Props) => {
               paddingBottom: 32,
             }}>
             <GroupListProduct title="Đề xuất của eBig" data={[1, 2, 3, 4]} />
+          </View>
+          <View
+            style={{
+              paddingTop: 32,
+              paddingBottom: 32,
+              backgroundColor: 'white',
+            }}>
+            <GroupListProduct
+              title="Mẫu thuyết trình nổi bật"
+              data={[1, 2, 3, 4]}
+            />
+          </View>
+          <View
+            style={{
+              paddingTop: 32,
+              paddingBottom: 32,
+              backgroundColor: 'white',
+            }}>
+            <GroupListProduct
+              title="Tài liệu nghiệp vụ nổi bật"
+              data={[1, 2, 3, 4]}
+            />
           </View>
         </ScrollView>
       </View>

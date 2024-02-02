@@ -157,7 +157,7 @@ const MarketTab = (props: Props) => {
       <OptimizeHeavyScreen>
         <View style={{flex: 1, width: '100%'}}>
           <ListTag
-            containerStyle={{backgroundColor: 'white'}}
+            containerStyle={{backgroundColor: 'white', height: 48}}
             itemStyle={{backgroundColor: AppColors.lightTheme.grey1}}
             data={demoData}
             onPress={item => {
