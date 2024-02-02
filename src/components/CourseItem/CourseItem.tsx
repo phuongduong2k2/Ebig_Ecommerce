@@ -4,6 +4,7 @@ import {AppIcons} from '../../constants/AppIcons';
 import AppTextStyles from '../../constants/AppTextStyles';
 import {formatNumber, formatPrice} from '../../utils';
 import AppSvg from '../AppSvg';
+import AppImages from '../../constants/AppImages';
 
 interface Props {
   user: {
@@ -25,16 +26,16 @@ export default function CourseItem(item: Props) {
     <View style={{borderRadius: 8, paddingTop: 16}}>
       <Image
         style={{width: '100%', borderRadius: 8}}
-        source={require('../../../assets/images/course/course.png')}
+        source={AppImages.avatar}
       />
       <View style={{gap: 8, marginTop: 16}}>
         <View style={{width: '100%', height: 24, flexDirection: 'row'}}>
           <Image
             source={
               item.user.avatar !== '' && item.user.avatar !== undefined
-                ? {uri: item.user.avatar}
+                ? AppImages.avatar
                 : {
-                    uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy7GRo3ow-AMiXdjB-xOnqb5t5IiOZ5SD3f9lgJ-c&s',
+                    uri: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fimage&psig=AOvVaw2z03QBazt2svX3CWFyFp5t&ust=1706954596517000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIik1sSzjIQDFQAAAAAdAAAAABAE',
                   }
             }
             style={{
