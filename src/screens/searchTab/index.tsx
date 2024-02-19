@@ -6,6 +6,8 @@ import ListTag from '../../components/ListTag';
 import {AppColors} from '../../constants/AppColors';
 import GroupListProduct from '../marketTab/components/groupListProduct';
 import useAppNavigation from '../../navigation/rootStackParamList';
+import WrapTab from '../../components/WrapTab';
+import OptimizeHeavyScreen from '../../components/OptimizeHeavyScreen/OptimizeHeavyScreen';
 
 type Props = {};
 
@@ -31,64 +33,71 @@ const listTagData = [
 const SearchTab = (props: Props) => {
   const navigation = useAppNavigation();
   return (
-    <View style={{flex: 1}}>
-      <MainSearchTabHeader title="Tìm kiếm sản phẩm" />
-      <SearchButton
-        title="Tìm kiếm"
-        onPress={() => {
-          navigation.navigate('SearchScreen');
-        }}
-      />
-      <ListTag
-        containerStyle={{backgroundColor: 'white', height: 48}}
-        itemStyle={{backgroundColor: AppColors.lightTheme.grey1}}
-        data={listTagData}
-        onPress={item => {
-          console.log(item);
-        }}
-      />
+    <WrapTab>
       <View style={{flex: 1}}>
-        <ScrollView>
-          <View
-            style={{
-              backgroundColor: 'white',
-              paddingTop: 24,
-              paddingBottom: 32,
-            }}>
-            <GroupListProduct title="Đã xem gần đây" data={[1, 2, 3, 4]} />
+        <MainSearchTabHeader title="Tìm kiếm sản phẩm" />
+        <SearchButton
+          title="Tìm kiếm"
+          onPress={() => {
+            navigation.navigate('SearchScreen');
+          }}
+        />
+        <OptimizeHeavyScreen>
+          <ListTag
+            containerStyle={{backgroundColor: 'white', height: 48}}
+            itemStyle={{backgroundColor: AppColors.lightTheme.grey1}}
+            data={listTagData}
+            onPress={item => {
+              console.log(item);
+            }}
+          />
+          <View style={{flex: 1}}>
+            <ScrollView>
+              <View
+                style={{
+                  backgroundColor: 'white',
+                  paddingTop: 24,
+                  paddingBottom: 32,
+                }}>
+                <GroupListProduct title="Đã xem gần đây" data={[1, 2, 3, 4]} />
+              </View>
+              <View
+                style={{
+                  paddingTop: 32,
+                  paddingBottom: 32,
+                }}>
+                <GroupListProduct
+                  title="Đề xuất của eBig"
+                  data={[1, 2, 3, 4]}
+                />
+              </View>
+              <View
+                style={{
+                  paddingTop: 32,
+                  paddingBottom: 32,
+                  backgroundColor: 'white',
+                }}>
+                <GroupListProduct
+                  title="Mẫu thuyết trình nổi bật"
+                  data={[1, 2, 3, 4]}
+                />
+              </View>
+              <View
+                style={{
+                  paddingTop: 32,
+                  paddingBottom: 32,
+                  backgroundColor: 'white',
+                }}>
+                <GroupListProduct
+                  title="Tài liệu nghiệp vụ nổi bật"
+                  data={[1, 2, 3, 4]}
+                />
+              </View>
+            </ScrollView>
           </View>
-          <View
-            style={{
-              paddingTop: 32,
-              paddingBottom: 32,
-            }}>
-            <GroupListProduct title="Đề xuất của eBig" data={[1, 2, 3, 4]} />
-          </View>
-          <View
-            style={{
-              paddingTop: 32,
-              paddingBottom: 32,
-              backgroundColor: 'white',
-            }}>
-            <GroupListProduct
-              title="Mẫu thuyết trình nổi bật"
-              data={[1, 2, 3, 4]}
-            />
-          </View>
-          <View
-            style={{
-              paddingTop: 32,
-              paddingBottom: 32,
-              backgroundColor: 'white',
-            }}>
-            <GroupListProduct
-              title="Tài liệu nghiệp vụ nổi bật"
-              data={[1, 2, 3, 4]}
-            />
-          </View>
-        </ScrollView>
+        </OptimizeHeavyScreen>
       </View>
-    </View>
+    </WrapTab>
   );
 };
 

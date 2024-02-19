@@ -61,7 +61,9 @@ const screenSocialData: ScreenDataItem[] = [
 
 const BottomTabNavigation = (props: Props) => {
   return (
-    <Tab.Navigator initialRouteName={'MarketScreen'}>
+    <Tab.Navigator
+      initialRouteName={'MarketScreen'}
+      screenOptions={{unmountOnBlur: true}}>
       {screenSocialData.map(({name, title, component, icon, images}, index) => (
         <Tab.Screen
           name={title}
