@@ -13,16 +13,15 @@ import {
 } from 'react-native';
 import React from 'react';
 import MainAppHeader from '../../components/MainAppHeader/MainAppHeader';
-import useAppNavigation from '../../navigation/rootStackParamList';
-import ListTag from '../../components/ListTag';
 import {AppColors} from '../../constants/AppColors';
-import ListCardHorizontal from '../../components/ListCardHorizontal';
 import AppTextStyles from '../../constants/AppTextStyles';
-import AppImageLazy from '../../components/AppImageLazy/AppImageLazy';
 import AppButton from '../../components/AppButton';
 import Rating from '../../components/Rating/Rating';
 import GroupListProduct from './components/groupListProduct';
 import OptimizeHeavyScreen from '../../components/OptimizeHeavyScreen/OptimizeHeavyScreen';
+import ListTag from '../../components/ListTag';
+import ListCardHorizontal from '../../components/ListCardHorizontal';
+import useAppNavigation from '../../navigation/RootStackParamList';
 
 const demoData = [
   {
@@ -57,103 +56,103 @@ const MarketTab = (props: Props) => {
   //   };
   // }, []);
 
-  const renderBook: ListRenderItem<any> = ({index, item}) => {
-    return (
-      <TouchableOpacity
-        style={{width: 163}}
-        onPress={() => {
-          navigation.navigate('MarketDetailScreen');
-        }}>
-        <AppImageLazy
-          source={{
-            uri: 'https://mockups-design.com/wp-content/uploads/2020/02/Free_Book_Mockup_5.jpg',
-          }}
-          style={{
-            resizeMode: 'cover',
-            width: '100%',
-            height: 122,
-            borderRadius: 8,
-          }}
-        />
-        <Text
-          style={{
-            ...AppTextStyles.title3,
-            color: AppColors.lightTheme.title,
-            marginTop: 4,
-          }}
-          numberOfLines={2}>
-          Columbia Men’s Bahama from Education Library Vent PFG Boat Shoe
-        </Text>
-        <Text
-          style={{
-            marginTop: 4,
-            ...AppTextStyles.subtitle3,
-            color: AppColors.lightTheme.subtitle,
-          }}>
-          eBig Education Library
-        </Text>
-      </TouchableOpacity>
-    );
-  };
+  // const renderBook: ListRenderItem<any> = ({index, item}) => {
+  //   return (
+  //     <TouchableOpacity
+  //       style={{width: 163}}
+  //       onPress={() => {
+  //         navigation.navigate('MarketDetailScreen');
+  //       }}>
+  //       <AppImageLazy
+  //         source={{
+  //           uri: 'https://mockups-design.com/wp-content/uploads/2020/02/Free_Book_Mockup_5.jpg',
+  //         }}
+  //         style={{
+  //           resizeMode: 'cover',
+  //           width: '100%',
+  //           height: 122,
+  //           borderRadius: 8,
+  //         }}
+  //       />
+  //       <Text
+  //         style={{
+  //           ...AppTextStyles.title3,
+  //           color: AppColors.lightTheme.title,
+  //           marginTop: 4,
+  //         }}
+  //         numberOfLines={2}>
+  //         Columbia Men’s Bahama from Education Library Vent PFG Boat Shoe
+  //       </Text>
+  //       <Text
+  //         style={{
+  //           marginTop: 4,
+  //           ...AppTextStyles.subtitle3,
+  //           color: AppColors.lightTheme.subtitle,
+  //         }}>
+  //         eBig Education Library
+  //       </Text>
+  //     </TouchableOpacity>
+  //   );
+  // };
 
-  const renderCardInfo: ListRenderItem<any> = ({index, item}) => {
-    return (
-      <View
-        style={{
-          backgroundColor: 'white',
-          borderTopLeftRadius: index === 0 ? 16 : 0,
-          borderBottomLeftRadius: index === 0 ? 16 : 0,
-          borderTopRightRadius: index === 3 ? 16 : 0,
-          borderBottomRightRadius: index === 3 ? 16 : 0,
-        }}>
-        <TouchableOpacity style={{padding: 16}}>
-          <View style={{width: 310}}>
-            <Image
-              source={{
-                uri: 'https://mockups-design.com/wp-content/uploads/2021/01/Free_Book_Mockup_8.jpg',
-              }}
-              style={{
-                resizeMode: 'cover',
-                height: 156,
-                width: '100%',
-                borderRadius: 8,
-              }}
-            />
-            <Text
-              style={{
-                marginTop: 16,
-                ...AppTextStyles.title3,
-                color: AppColors.lightTheme.title,
-              }}
-              numberOfLines={2}>
-              The unseen of spending three years at Pixelgrade
-            </Text>
-            <Text
-              style={{
-                marginTop: 12,
-                ...AppTextStyles.subtitle3,
-                color: AppColors.lightTheme.subtitle,
-              }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac
-              luctus nisi, ut convallis nunc. Proin purus velit, malesuada{' '}
-            </Text>
-            <Text
-              style={{
-                marginTop: 24,
-                ...AppTextStyles.button5,
-                color: AppColors.lightTheme.subtitle,
-              }}>
-              EDUCATION
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    );
-  };
+  // const renderCardInfo: ListRenderItem<any> = ({index, item}) => {
+  //   return (
+  //     <View
+  //       style={{
+  //         backgroundColor: 'white',
+  //         borderTopLeftRadius: index === 0 ? 16 : 0,
+  //         borderBottomLeftRadius: index === 0 ? 16 : 0,
+  //         borderTopRightRadius: index === 3 ? 16 : 0,
+  //         borderBottomRightRadius: index === 3 ? 16 : 0,
+  //       }}>
+  //       <TouchableOpacity style={{padding: 16}}>
+  //         <View style={{width: 310}}>
+  //           <Image
+  //             source={{
+  //               uri: 'https://mockups-design.com/wp-content/uploads/2021/01/Free_Book_Mockup_8.jpg',
+  //             }}
+  //             style={{
+  //               resizeMode: 'cover',
+  //               height: 156,
+  //               width: '100%',
+  //               borderRadius: 8,
+  //             }}
+  //           />
+  //           <Text
+  //             style={{
+  //               marginTop: 16,
+  //               ...AppTextStyles.title3,
+  //               color: AppColors.lightTheme.title,
+  //             }}
+  //             numberOfLines={2}>
+  //             The unseen of spending three years at Pixelgrade
+  //           </Text>
+  //           <Text
+  //             style={{
+  //               marginTop: 12,
+  //               ...AppTextStyles.subtitle3,
+  //               color: AppColors.lightTheme.subtitle,
+  //             }}>
+  //             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac
+  //             luctus nisi, ut convallis nunc. Proin purus velit, malesuada{' '}
+  //           </Text>
+  //           <Text
+  //             style={{
+  //               marginTop: 24,
+  //               ...AppTextStyles.button5,
+  //               color: AppColors.lightTheme.subtitle,
+  //             }}>
+  //             EDUCATION
+  //           </Text>
+  //         </View>
+  //       </TouchableOpacity>
+  //     </View>
+  //   );
+  // };
 
   return (
     <View style={{flex: 1}}>
-      <MainAppHeader title={'MarketTab'} />
+      {/* <MainAppHeader title={'MarketTab'} /> */}
       <OptimizeHeavyScreen>
         <View style={{flex: 1, width: '100%'}}>
           <ListTag
@@ -212,19 +211,6 @@ const MarketTab = (props: Props) => {
                     mở cửa hàng trên eBig
                   </Text>
                 </View>
-                <View style={{marginTop: 16}}>
-                  <FlatList
-                    horizontal
-                    data={[1, 2, 3, 4]}
-                    showsHorizontalScrollIndicator={false}
-                    contentContainerStyle={{
-                      paddingHorizontal: 16,
-                      marginVertical: 12,
-                    }}
-                    ItemSeparatorComponent={() => <View style={{width: 16}} />}
-                    renderItem={renderBook}
-                  />
-                </View>
                 <AppButton
                   title="Đăng ký thành viên"
                   containerStyle={{
@@ -268,24 +254,6 @@ const MarketTab = (props: Props) => {
                   }}>
                   Chúng tôi chia sẻ thông tin cập nhật thường xuyên trên website
                 </Text>
-                <View style={{marginTop: 24}}>
-                  <FlatList
-                    data={[1, 2, 3, 4]}
-                    showsHorizontalScrollIndicator={false}
-                    ItemSeparatorComponent={() => (
-                      <View
-                        style={{
-                          width: 1,
-                          backgroundColor: AppColors.lightTheme.border1,
-                          height: '100%',
-                        }}
-                      />
-                    )}
-                    contentContainerStyle={{paddingHorizontal: 16}}
-                    renderItem={renderCardInfo}
-                    horizontal
-                  />
-                </View>
                 <AppButton
                   title="Đọc tất cả bài viết"
                   containerStyle={{

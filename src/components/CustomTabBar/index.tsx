@@ -1,7 +1,7 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React, {forwardRef} from 'react';
 import {MaterialTabBar, useFocusedTab} from 'react-native-collapsible-tab-view';
-import useAppNavigation from '../../navigation/rootStackParamList';
+import useAppNavigation from '../../navigation/RootStackParamList';
 import AppSvg from '../AppSvg';
 import {AppIcons} from '../../constants/AppIcons';
 import {AppColors} from '../../constants/AppColors';

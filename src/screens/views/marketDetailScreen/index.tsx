@@ -20,7 +20,8 @@ import AppButton from '../../../components/AppButton';
 import RatingGroup from '../../../components/Rating/RatingGroup';
 import {ShareModalUtils} from '../../../components/ShareModal/ShareModal';
 import CustomTabBar from '../../../components/CustomTabBar';
-import useAppNavigation from '../../../navigation/rootStackParamList';
+import useAppNavigation from '../../../navigation/RootStackParamList';
+
 
 const ProductDescription = () => {
   return (

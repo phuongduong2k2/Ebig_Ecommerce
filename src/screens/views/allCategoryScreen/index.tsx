@@ -11,11 +11,11 @@ import React from 'react';
 import AppHeader from '../../../components/AppHeader';
 import AppSvg from '../../../components/AppSvg';
 import {AppIcons} from '../../../constants/AppIcons';
-import useAppNavigation from '../../../navigation/rootStackParamList';
 import {AppColors} from '../../../constants/AppColors';
 import AppTextStyles from '../../../constants/AppTextStyles';
 import GroupListProduct from '../../marketTab/components/groupListProduct';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import useAppNavigation from '../../../navigation/RootStackParamList';
 
 type Props = {};
 

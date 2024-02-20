@@ -11,7 +11,7 @@ import PostTab from './PostTab/PostTab';
 import CourseListTab from './CourseListTab/CourseListTab';
 import SalesListTab from './SalesListTab/SalesListTab';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import useAppNavigation from '../../../navigation/rootStackParamList';
+import useAppNavigation from '../../../navigation/RootStackParamList';
 import {CollapsibleRef, Tabs} from 'react-native-collapsible-tab-view';
 import AppImages from '../../../constants/AppImages';
 import AppTextStyles from '../../../constants/AppTextStyles';

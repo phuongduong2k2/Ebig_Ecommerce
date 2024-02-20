@@ -53,14 +53,14 @@ const AppImageLazy = (props: Props) => {
     };
   }, [isSuccess]);
 
-  const imageStyle = useAnimatedStyle(() => {
-    const opacity = interpolate(anim.value, [1, 0], [0, 1], 'clamp');
-    return {
-      zIndex: 1,
-      opacity,
-      ...style,
-    };
-  });
+  // const imageStyle = useAnimatedStyle(() => {
+  //   const opacity = interpolate(anim.value, [1, 0], [0, 1], 'clamp');
+  //   return {
+  //     zIndex: 1,
+  //     opacity,
+  //     ...style,
+  //   };
+  // });
 
   return (
     <View
@@ -87,13 +87,14 @@ const AppImageLazy = (props: Props) => {
           zIndex: 0,
         }}>
         {!isDone ? (
-          <SkeletonPlaceholder>
-            <SkeletonPlaceholder.Item
-              height={'100%'}
-              width={'100%'}
-              borderRadius={style?.borderRadius}
-            />
-          </SkeletonPlaceholder>
+          // <SkeletonPlaceholder>
+          //   <SkeletonPlaceholder.Item
+          //     height={'100%'}
+          //     width={'100%'}
+          //     borderRadius={style?.borderRadius}
+          //   />
+          // </SkeletonPlaceholder>
+          <></>
         ) : (
           <View
             style={{
@@ -110,10 +111,10 @@ const AppImageLazy = (props: Props) => {
           height: '100%',
           width: '100%',
         }}>
-        <Animated.Image
+        <Image
           defaultSource={defaultSource}
           source={source}
-          style={imageStyle}
+          style={style}
           onLoad={() => {
             console.log('loading success');
             setSuccess(true);

@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import React, {useState} from 'react';
-import useAppNavigation from '../../../navigation/rootStackParamList';
+import useAppNavigation from '../../../navigation/RootStackParamList';
 import AppTextStyles from '../../../constants/AppTextStyles';
 import {AppColors} from '../../../constants/AppColors';
 import {AppIcons} from '../../../constants/AppIcons';

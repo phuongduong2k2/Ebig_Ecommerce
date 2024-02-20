@@ -13,8 +13,8 @@ import AppImages from '../../../../constants/AppImages';
 import AppImageLazy from '../../../../components/AppImageLazy/AppImageLazy';
 import {AppIcons} from '../../../../constants/AppIcons';
 import AppSvg from '../../../../components/AppSvg';
-import useAppNavigation from '../../../../navigation/rootStackParamList';
 import AppButton from '../../../../components/AppButton';
+import useAppNavigation from '../../../../navigation/RootStackParamList';
 
 type Props = {
   title?: string;

@@ -24,9 +24,6 @@ import Animated, {
 } from 'react-native-reanimated';
 import ReactNativeModal from 'react-native-modal';
 import Share, {Social} from 'react-native-share';
-import useAppNavigation, {
-  RootStackParamList,
-} from '../../../navigation/rootStackParamList';
 import {AppColors} from '../../../constants/AppColors';
 import BottomSheetKeyboardAvoidingView from '../../../components/BottomSheetKeyboardAvoidingView/BottomSheetKeyboardAvoidingView';
 import AppTextStyles from '../../../constants/AppTextStyles';
@@ -42,6 +39,7 @@ import HashTag from '../../../components/HashTag/HashTag';
 import AppButton from '../../../components/AppButton';
 import CardPost from '../../../components/CardPost/CardPost';
 import SavePostModal from './components/SavePostModal';
+import useAppNavigation, { RootStackParamList } from '../../../navigation/RootStackParamList';
 
 interface Props {}
 type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'PostDetailScreen'>;

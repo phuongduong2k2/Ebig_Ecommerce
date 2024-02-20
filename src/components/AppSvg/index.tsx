@@ -7,6 +7,8 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import { SvgXml } from 'react-native-svg';
+import { AppIcons } from '../../constants/AppIcons';
 
 AppSvg.defaultProps = {
   size: '100%',
@@ -20,20 +22,20 @@ interface Props {
   /**
    * Kích thước
    */
-  size: DimensionValue;
+  size: number;
   style?: ViewStyle;
   /**
    * Màu
    */
   color?: string;
-  height?: DimensionValue;
-  width?: DimensionValue;
+  height?: number;
+  width?: number;
   isSquare?: boolean;
 }
 
 function AppSvg(props: Props) {
   const {
-    SvgSrc = null,
+    SvgSrc = ``,
     size = 24,
     style = {},
     color = '',
@@ -41,6 +43,11 @@ function AppSvg(props: Props) {
     width,
     isSquare = true,
   } = props;
+
+  const modifiedColor = SvgSrc.replaceAll(
+    'fill="black"',
+    'fill="' + color + '"',
+  );
 
   return (
     <View
@@ -51,13 +58,8 @@ function AppSvg(props: Props) {
         alignItems: 'center',
         ...style,
       }}>
-      {SvgSrc && (
-        <SvgSrc
-          height={isSquare ? size : height}
-          width={isSquare ? size : width}
-          fill={color}
-        />
-      )}
+      {SvgSrc && <SvgXml xml={modifiedColor} width={size} height={size} />}
+     
     </View>
   );
 }

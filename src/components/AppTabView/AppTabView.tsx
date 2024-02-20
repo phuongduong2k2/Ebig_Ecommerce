@@ -19,7 +19,7 @@ import AppSvg from '../AppSvg';
 import {AppColors} from '../../constants/AppColors';
 import AppTextStyles from '../../constants/AppTextStyles';
 import Animated, {useSharedValue, withTiming} from 'react-native-reanimated';
-import useAppNavigation from '../../navigation/rootStackParamList';
+import useAppNavigation from '../../navigation/RootStackParamList';
 import {Layout} from 'react-native-tab-view/lib/typescript/src/types';
 import {TabActions, useNavigation} from '@react-navigation/native';
 

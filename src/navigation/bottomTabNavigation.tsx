@@ -16,8 +16,8 @@ const Tab = createBottomTabNavigator();
 type Props = {};
 
 interface Icon {
-  active: React.ComponentType<any>;
-  inactive: React.ComponentType<any>;
+  active: string;
+  inactive: string;
 }
 
 interface ScreenDataItem {

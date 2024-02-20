@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import moment from 'moment';
 import 'moment/locale/vi';
-import useAppNavigation from '../../navigation/rootStackParamList';
+import useAppNavigation from '../../navigation/RootStackParamList';
 import {AppColors} from '../../constants/AppColors';
 import AppTextStyles from '../../constants/AppTextStyles';
 import AppSvg from '../AppSvg';

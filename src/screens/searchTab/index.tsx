@@ -5,7 +5,7 @@ import SearchButton from '../../components/SearchButton';
 import ListTag from '../../components/ListTag';
 import {AppColors} from '../../constants/AppColors';
 import GroupListProduct from '../marketTab/components/groupListProduct';
-import useAppNavigation from '../../navigation/rootStackParamList';
+import useAppNavigation from '../../navigation/RootStackParamList'; 
 
 type Props = {};
 

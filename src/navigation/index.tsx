@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {View} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {TouchableOpacity, View} from 'react-native';
+import {SafeAreaProvider, useSafeAreaInsets} from 'react-native-safe-area-context';
 import MarketScreen from '../screens/marketTab';
 import AllCategoryScreen from '../screens/views/allCategoryScreen';
 import CategoryScreen from '../screens/views/categoryScreen';
@@ -10,19 +10,27 @@ import MarketDetailScreen from '../screens/views/marketDetailScreen';
 import SearchScreen from '../screens/views/searchScreen';
 import AuthorScreen from '../screens/views/authorScreen';
 import PostDetailScreen from '../screens/views/postDetailScreen';
+import AppHeader from '../components/AppHeader';
+import AppSvg from '../components/AppSvg';
+import { AppIcons } from '../constants/AppIcons';
+import useAppNavigation from './RootStackParamList';
 
 const Stack = createNativeStackNavigator();
 
 const MainNavigation: React.FC = () => {
-  const insets = useSafeAreaInsets();
+  // const insets = useSafeAreaInsets();
+  const navigation=useAppNavigation()
   return (
     <View
       style={{
         flex: 1,
-        paddingTop: insets.top,
-        paddingBottom: insets.bottom,
+        width:"100%",
       }}>
-      <NavigationContainer independent={true}>
+        <SafeAreaProvider>
+                  <AppHeader title="Market">
+            <><TouchableOpacity onPress={()=>navigation.goBack()}><AppSvg SvgSrc={AppIcons.arrow_left} size={24} /></TouchableOpacity></>
+            <></>
+          </AppHeader>
         <Stack.Navigator
           initialRouteName={'BottomTabs'}
           screenOptions={{headerShown: false, orientation: 'portrait'}}>
@@ -43,7 +51,7 @@ const MainNavigation: React.FC = () => {
           <Stack.Screen name="CategoryScreen" component={CategoryScreen} />
           <Stack.Screen name="AuthorScreen" component={AuthorScreen} />
         </Stack.Navigator>
-      </NavigationContainer>
+        </SafeAreaProvider>
     </View>
   );
 };

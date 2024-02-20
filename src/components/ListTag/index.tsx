@@ -110,17 +110,17 @@ const ListTag = (props: Props) => {
           ...contentContainerStyle,
         }}
         renderItem={renderTopic}
-        ListEmptyComponent={() => {
-          return [1, 2, 3].map(item => (
-            <SkeletonPlaceholder>
-              <SkeletonPlaceholder.Item
-                height={32}
-                width={91}
-                borderRadius={24}
-              />
-            </SkeletonPlaceholder>
-          ));
-        }}
+        // ListEmptyComponent={() => {
+        //   return [1, 2, 3].map(item => (
+        //     <SkeletonPlaceholder>
+        //       <SkeletonPlaceholder.Item
+        //         height={32}
+        //         width={91}
+        //         borderRadius={24}
+        //       />
+        //     </SkeletonPlaceholder>
+        //   ));
+        // }}
         // ListHeaderComponent={() => <AddTopicTag />}
         keyExtractor={item => item.key}
         style={{height: 64, ...containerStyle}}

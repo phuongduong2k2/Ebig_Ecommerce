@@ -10,11 +10,11 @@ import React from 'react';
 import AppHeader from '../../../components/AppHeader';
 import AppSvg from '../../../components/AppSvg';
 import {AppIcons} from '../../../constants/AppIcons';
-import useAppNavigation from '../../../navigation/rootStackParamList';
 import ListTag from '../../../components/ListTag';
 import {AppColors} from '../../../constants/AppColors';
 import GroupListProduct from '../../marketTab/components/groupListProduct';
 import AppTextStyles from '../../../constants/AppTextStyles';
+import useAppNavigation from '../../../navigation/RootStackParamList';
 
 type Props = {
   title?: string;
