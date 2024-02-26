@@ -15,6 +15,8 @@ import {AppIcons} from '../../../../constants/AppIcons';
 import AppSvg from '../../../../components/AppSvg';
 import useAppNavigation from '../../../../navigation/rootStackParamList';
 import AppButton from '../../../../components/AppButton';
+import {Skeleton} from '@rneui/themed';
+import LinearGradient from 'react-native-linear-gradient';
 
 type Props = {
   title?: string;
@@ -54,7 +56,7 @@ const GroupListProduct = (props: Props) => {
   const renderProduct: ListRenderItem<any> = ({index, item}) => {
     return (
       <TouchableOpacity
-        style={{width: 163}}
+        style={{width: 163, height: '100%'}}
         onPress={() => {
           console.log(item);
           navigation.navigate('MarketDetailScreen');
@@ -141,6 +143,71 @@ const GroupListProduct = (props: Props) => {
     );
   };
 
+  const SkeletonView = () => {
+    return [0, 1, 2, 3].map(item => (
+      <View
+        key={item}
+        style={{
+          opacity: 0.5,
+          marginRight: 16,
+          height: 268,
+          width: 163,
+          justifyContent: 'space-between',
+        }}>
+        <Skeleton
+          height={122}
+          width={163}
+          style={{
+            alignSelf: 'center',
+            borderRadius: 8,
+          }}
+          animation="wave"
+          LinearGradientComponent={LinearGradient}
+        />
+        <Skeleton
+          animation="wave"
+          LinearGradientComponent={LinearGradient}
+          style={{width: '80%', height: 16}}
+        />
+        <Skeleton
+          animation="wave"
+          LinearGradientComponent={LinearGradient}
+          style={{width: '50%', height: 16}}
+        />
+        <View
+          style={{
+            height: 24,
+            alignItems: 'center',
+            flexDirection: 'row',
+            width: '100%',
+          }}>
+          <Skeleton
+            animation="wave"
+            circle
+            LinearGradientComponent={LinearGradient}
+            style={{width: 24}}
+          />
+          <Skeleton
+            animation="wave"
+            circle
+            LinearGradientComponent={LinearGradient}
+            style={{width: '50%', height: 16, marginLeft: 8}}
+          />
+        </View>
+        <Skeleton
+          animation="wave"
+          LinearGradientComponent={LinearGradient}
+          style={{width: '50%', height: 12}}
+        />
+        <Skeleton
+          animation="wave"
+          LinearGradientComponent={LinearGradient}
+          style={{width: '70%', height: 16}}
+        />
+      </View>
+    ));
+  };
+
   return (
     <View>
       <Text
@@ -155,10 +222,14 @@ const GroupListProduct = (props: Props) => {
         <FlatList
           data={data}
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{paddingHorizontal: 16}}
+          contentContainerStyle={{
+            paddingHorizontal: 16,
+            height: 268,
+          }}
           ItemSeparatorComponent={() => <View style={{width: 16}} />}
           renderItem={renderProduct}
           horizontal
+          ListEmptyComponent={SkeletonView}
           ListFooterComponent={ListFooterComponent}
         />
       </View>

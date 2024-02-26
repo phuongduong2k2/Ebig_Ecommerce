@@ -22,7 +22,7 @@ const ListBookHorizontal = (props: Props) => {
 
   const navigation = useAppNavigation();
 
-  const skeletonView = () => {
+  const SkeletonView = () => {
     return [0, 1, 2, 3].map(item => (
       <View
         key={item}
@@ -112,7 +112,7 @@ const ListBookHorizontal = (props: Props) => {
         marginVertical: 12,
       }}
       ItemSeparatorComponent={() => <View style={{width: 16}} />}
-      ListEmptyComponent={skeletonView}
+      ListEmptyComponent={SkeletonView}
       renderItem={renderBook}
     />
   );
