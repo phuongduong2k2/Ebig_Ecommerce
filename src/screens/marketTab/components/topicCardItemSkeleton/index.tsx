@@ -1,24 +1,29 @@
 import {ViewStyle, DimensionValue} from 'react-native';
 import React from 'react';
-import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+import {Skeleton} from '@rneui/themed';
+import LinearGradient from 'react-native-linear-gradient';
 
 interface Props {
   style?: ViewStyle;
-  height?: DimensionValue;
-  width?: DimensionValue;
+  height?: number;
+  width?: number;
 }
 
 const TopicCardItemSkeleton = (props: Props) => {
   const {style, height = 200, width = 140} = props;
   return (
-    <SkeletonPlaceholder borderRadius={10}>
-      <SkeletonPlaceholder.Item
-        height={height}
-        width={width}
-        // marginLeft={16}
-        style={style}
-      />
-    </SkeletonPlaceholder>
+    <Skeleton
+      height={height}
+      width={width}
+      style={{
+        alignSelf: 'center',
+        borderRadius: 8,
+        opacity: 0.5,
+        ...style,
+      }}
+      animation="wave"
+      LinearGradientComponent={LinearGradient}
+    />
   );
 };
 

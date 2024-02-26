@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   ImageURISource,
+  ViewStyle,
 } from 'react-native';
 import React, {ReactNode, useEffect, useRef, useState} from 'react';
 import Animated, {
@@ -15,6 +16,8 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import {Skeleton} from '@rneui/themed';
+import LinearGradient from 'react-native-linear-gradient';
 
 interface Props {
   // children?: ReactNode;
@@ -24,12 +27,18 @@ interface Props {
   onPress?: () => void;
   onLoadDone?: () => void;
   activeOpacity?: number;
+  skeletonHeight?: number;
+  skeletonWidth?: number;
+  skeletonStyle?: ViewStyle;
 }
 
 const AppImageLazy = (props: Props) => {
   const {
     source,
     style,
+    skeletonHeight,
+    skeletonWidth,
+    skeletonStyle,
     onPress,
     defaultSource = undefined,
     onLoadDone,
@@ -86,15 +95,19 @@ const AppImageLazy = (props: Props) => {
           zIndex: 0,
         }}>
         {!isDone ? (
-          <View />
+          <Skeleton
+            height={skeletonHeight}
+            width={skeletonWidth}
+            style={{
+              alignSelf: 'center',
+              borderRadius: 8,
+              opacity: 0.5,
+              ...skeletonStyle,
+            }}
+            animation="wave"
+            LinearGradientComponent={LinearGradient}
+          />
         ) : (
-          // <SkeletonPlaceholder>
-          //   <SkeletonPlaceholder.Item
-          //     height={'100%'}
-          //     width={'100%'}
-          //     borderRadius={style?.borderRadius}
-          //   />
-          // </SkeletonPlaceholder>
           <View
             style={{
               height: '100%',

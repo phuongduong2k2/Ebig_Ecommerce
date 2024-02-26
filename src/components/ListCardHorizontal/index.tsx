@@ -6,6 +6,7 @@ import AppTextStyles from '../../constants/AppTextStyles';
 
 // import TopicCardItemSkeleton from '../../screens/marketTab/components/topicCardItemSkeleton';
 import TopicCardItem from '../../screens/marketTab/components/topicCardItem';
+import TopicCardItemSkeleton from '../../screens/marketTab/components/topicCardItemSkeleton';
 
 type DataProp = {
   id: string;
@@ -83,18 +84,18 @@ const ListCardHorizontal = (props: Props) => {
         horizontal={true}
         getItemLayout={getItemLayoutTopic}
         style={{marginTop: 20, marginBottom: 16, ...containerStyle}}
-        // ListEmptyComponent={() => {
-        //   return [1, 2, 3].map(item => (
-        //     <TopicCardItemSkeleton
-        //       key={item}
-        //       height={itemHeight}
-        //       width={itemWidth}
-        //       style={{
-        //         marginLeft: item === 1 ? 0 : 16,
-        //       }}
-        //     />
-        //   ));
-        // }}
+        ListEmptyComponent={() => {
+          return [1, 2, 3].map(item => (
+            <TopicCardItemSkeleton
+              key={item}
+              height={itemHeight}
+              width={itemWidth}
+              style={{
+                marginLeft: item === 1 ? 0 : 16,
+              }}
+            />
+          ));
+        }}
         contentContainerStyle={{
           paddingHorizontal: 16,
           height: itemHeight,

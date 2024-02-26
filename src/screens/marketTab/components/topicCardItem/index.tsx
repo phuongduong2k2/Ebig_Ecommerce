@@ -15,8 +15,8 @@ type TopicProps = {
 interface Props {
   data: TopicProps;
   onPress?: (item: TopicProps) => void;
-  height?: DimensionValue;
-  width?: DimensionValue;
+  height?: number;
+  width?: number;
 }
 
 const TopicCardItem = (props: Props) => {
@@ -37,6 +37,8 @@ const TopicCardItem = (props: Props) => {
         }
       }}>
       <AppImageLazy
+        skeletonHeight={height}
+        skeletonWidth={width}
         // activeOpacity={0.3}
         defaultSource={AppImages.empty_image}
         source={{
