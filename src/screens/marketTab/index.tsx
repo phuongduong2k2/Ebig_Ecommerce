@@ -11,7 +11,7 @@ import {
   ActivityIndicator,
   ImageBackground,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import MainAppHeader from '../../components/MainAppHeader/MainAppHeader';
 import useAppNavigation from '../../navigation/rootStackParamList';
 import ListTag from '../../components/ListTag';
@@ -24,6 +24,7 @@ import Rating from '../../components/Rating/Rating';
 import GroupListProduct from './components/groupListProduct';
 import OptimizeHeavyScreen from '../../components/OptimizeHeavyScreen/OptimizeHeavyScreen';
 import WrapTab from '../../components/WrapTab';
+import ListBookHorizontal from './components/listBookHorizontal';
 
 const demoData = [
   {
@@ -71,7 +72,7 @@ const MarketTab = (props: Props) => {
           }}
           style={{
             resizeMode: 'cover',
-            width: '100%',
+            flex: 1,
             height: 122,
             borderRadius: 8,
           }}
@@ -215,19 +216,7 @@ const MarketTab = (props: Props) => {
                     </Text>
                   </View>
                   <View style={{marginTop: 16}}>
-                    <FlatList
-                      horizontal
-                      data={[1, 2, 3, 4]}
-                      showsHorizontalScrollIndicator={false}
-                      contentContainerStyle={{
-                        paddingHorizontal: 16,
-                        marginVertical: 12,
-                      }}
-                      ItemSeparatorComponent={() => (
-                        <View style={{width: 16}} />
-                      )}
-                      renderItem={renderBook}
-                    />
+                    <ListBookHorizontal data={[1, 2, 3, 4]} />
                   </View>
                   <AppButton
                     title="Đăng ký thành viên"
