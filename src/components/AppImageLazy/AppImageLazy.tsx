@@ -9,7 +9,6 @@ import {
   ImageURISource,
 } from 'react-native';
 import React, {ReactNode, useEffect, useRef, useState} from 'react';
-import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -87,14 +86,15 @@ const AppImageLazy = (props: Props) => {
           zIndex: 0,
         }}>
         {!isDone ? (
-          <SkeletonPlaceholder>
-            <SkeletonPlaceholder.Item
-              height={'100%'}
-              width={'100%'}
-              borderRadius={style?.borderRadius}
-            />
-          </SkeletonPlaceholder>
+          <View />
         ) : (
+          // <SkeletonPlaceholder>
+          //   <SkeletonPlaceholder.Item
+          //     height={'100%'}
+          //     width={'100%'}
+          //     borderRadius={style?.borderRadius}
+          //   />
+          // </SkeletonPlaceholder>
           <View
             style={{
               height: '100%',

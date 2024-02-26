@@ -14,7 +14,8 @@ import AppTextStyles from '../../constants/AppTextStyles';
 import {AppColors} from '../../constants/AppColors';
 import {AppIcons} from '../../constants/AppIcons';
 import AppSvg from '../AppSvg';
-import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+import {Skeleton} from '@rneui/themed';
+import LinearGradient from 'react-native-linear-gradient';
 
 type TagObj = {
   name: string;
@@ -107,18 +108,25 @@ const ListTag = (props: Props) => {
         horizontal
         contentContainerStyle={{
           paddingHorizontal: 16,
+          flex: 1,
           ...contentContainerStyle,
         }}
         renderItem={renderTopic}
         ListEmptyComponent={() => {
-          return [1, 2, 3].map(item => (
-            <SkeletonPlaceholder>
-              <SkeletonPlaceholder.Item
-                height={32}
-                width={91}
-                borderRadius={24}
-              />
-            </SkeletonPlaceholder>
+          return [1, 2, 3, 4].map(item => (
+            <Skeleton
+              height={30}
+              key={item}
+              width={80}
+              style={{
+                alignSelf: 'center',
+                marginRight: 8,
+                borderRadius: 100,
+                opacity: 0.5,
+              }}
+              animation="wave"
+              LinearGradientComponent={LinearGradient}
+            />
           ));
         }}
         // ListHeaderComponent={() => <AddTopicTag />}
