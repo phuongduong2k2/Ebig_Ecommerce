@@ -238,7 +238,7 @@ export default (env) => {
         /**
          * The name of the module is used to identify the module in URLs resolver and imports.
          */
-        name: 'Ebig_Ecommerce_5',
+        name: 'Ebig_Ecommerce_3',
         /**
          * This is a list of modules that will be shared between remote containers.
          */
