@@ -10,8 +10,9 @@ import AppTextStyles from '../constants/AppTextStyles';
 import MarketTab from '../screens/marketTab';
 import SearchTab from '../screens/searchTab';
 import ProfileTab from '../screens/profileTab';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 type Props = {};
 
@@ -61,75 +62,161 @@ const screenSocialData: ScreenDataItem[] = [
 
 const BottomTabNavigation = (props: Props) => {
   return (
-    <Tab.Navigator initialRouteName={'MarketScreen'}>
-      {screenSocialData.map(({name, title, component, icon, images}, index) => (
-        <Tab.Screen
-          name={title}
-          component={component}
-          key={name}
-          listeners={{
-            tabPress: e => {
-              // e.preventDefault();
-              // if ((!isLogin && index == 2) || (!isLogin && index == 3)) {
-              //   LoginBottomSheetUtils.show();
-              // }
-            },
-          }}
-          options={({navigation}) => ({
-            headerShown: false,
-            tabBarStyle: {
-              paddingBottom: 0,
-              paddingTop: 4,
-              height: 52,
-            },
-            tabBarIcon: ({focused}) => {
-              const isLastIcon = index === screenSocialData.length - 1;
-              if (isLastIcon) {
-                return images ? (
-                  <Image
-                    source={images}
-                    style={{
-                      resizeMode: 'contain',
-                      height: 24,
-                      width: 24,
-                      borderWidth: focused ? 2 : 0,
-                      borderRadius: 1000,
-                      borderColor: AppColors.primary,
-                    }}
-                  />
-                ) : (
-                  <AppSvg
-                    size={24}
-                    SvgSrc={focused ? icon.active : icon.inactive}
-                  />
-                );
-              } else {
-                return (
-                  <AppSvg
-                    size={24}
-                    SvgSrc={focused ? icon.active : icon.inactive}
-                  />
-                );
-              }
-            },
-            tabBarLabel: ({focused, children}) => {
-              return (
-                <Text
-                  style={{
-                    ...AppTextStyles.label5,
-                    color: !focused
-                      ? AppColors.lightTheme.subtitle
-                      : AppColors.primary,
-                  }}
-                  numberOfLines={1}>
-                  {children}
-                </Text>
-              );
-            },
-          })}
-        />
-      ))}
-    </Tab.Navigator>
+    // <Tab.Navigator initialRouteName={'MarketScreen'}>
+    //   {screenSocialData.map(({name, title, component, icon, images}, index) => (
+    //     <Tab.Screen
+    //       name={title}
+    //       component={component}
+    //       key={name}
+    //       listeners={{
+    //         tabPress: e => {
+    //           // e.preventDefault();
+    //           // if ((!isLogin && index == 2) || (!isLogin && index == 3)) {
+    //           //   LoginBottomSheetUtils.show();
+    //           // }
+    //         },
+    //       }}
+    //       options={({navigation}) => ({
+    //         headerShown: false,
+    //         tabBarStyle: {
+    //           paddingBottom: 0,
+    //           paddingTop: 4,
+    //           height: 52,
+    //         },
+    //         tabBarIcon: ({focused}) => {
+    //           const isLastIcon = index === screenSocialData.length - 1;
+    //           if (isLastIcon) {
+    //             return images ? (
+    //               <Image
+    //                 source={images}
+    //                 style={{
+    //                   resizeMode: 'contain',
+    //                   height: 24,
+    //                   width: 24,
+    //                   borderWidth: focused ? 2 : 0,
+    //                   borderRadius: 1000,
+    //                   borderColor: AppColors.primary,
+    //                 }}
+    //               />
+    //             ) : (
+    //               <AppSvg
+    //                 size={24}
+    //                 SvgSrc={focused ? icon.active : icon.inactive}
+    //               />
+    //             );
+    //           } else {
+    //             return (
+    //               <AppSvg
+    //                 size={24}
+    //                 SvgSrc={focused ? icon.active : icon.inactive}
+    //               />
+    //             );
+    //           }
+    //         },
+    //         tabBarLabel: ({focused, children}) => {
+    //           return (
+    //             <Text
+    //               style={{
+    //                 ...AppTextStyles.label5,
+    //                 color: !focused
+    //                   ? AppColors.lightTheme.subtitle
+    //                   : AppColors.primary,
+    //               }}
+    //               numberOfLines={1}>
+    //               {children}
+    //             </Text>
+    //           );
+    //         },
+    //       })}
+    //     />
+    //   ))}
+    // </Tab.Navigator>
+    <Tab.Navigator  initialRouteName={ScreenNames.MarketTab}
+    activeColor={AppColors.primary}
+    inactiveColor={AppColors.lightTheme.subtitle}>
+    {screenSocialData.map(({name, title, component, icon, images}, index) => (
+      <Tab.Screen
+        name={title}
+        component={component}
+        key={name}
+        options={{
+          tabBarLabel: <Text style={AppTextStyles.label5}>{title}</Text> as unknown as string,
+          tabBarIcon: ({ focused }) => (
+            <AppSvg SvgSrc={focused?icon.active:icon.inactive} size={24} />
+          ),
+        }}
+        listeners={{
+          tabPress: e => {
+            // e.preventDefault();
+            // if ((!isLogin && index == 2) || (!isLogin && index == 3)) {
+            //   LoginBottomSheetUtils.show();
+            // }
+          },
+        }}
+        // options={({navigation}) => ({
+        //   headerShown: false,
+        //   tabBarStyle: {
+        //     paddingBottom: 0,
+        //     paddingTop: 4,
+        //     height: 52,
+        //   },
+        //   tabBarIcon: ({focused}) => {
+        //     const isLastIcon = index === screenSocialData.length - 1;
+        //     if (isLastIcon) {
+        //       return images ? (
+        //         <Image
+        //           source={
+        //             //   userInfo?.response?.UrlAvatar
+        //             //     ? {
+        //             //         uri:
+        //             //           userInfo?.response?.UrlAvatar ||
+        //             //           'https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png',
+        //             //       }
+        //             //     :
+        //             images
+        //           }
+        //           style={{
+        //             resizeMode: 'contain',
+        //             height: 24,
+        //             width: 24,
+        //             borderWidth: focused ? 2 : 0,
+        //             borderRadius: 1000,
+        //             borderColor: AppColors.primary,
+        //           }}
+        //         />
+        //       ) : (
+        //         <AppSvg
+        //           size={24}
+        //           SvgSrc={focused ? icon.active : icon.inactive}
+        //         />
+        //       );
+        //     } else {
+        //       return (
+        //         <AppSvg
+        //           size={24}
+        //           SvgSrc={focused ? icon.active : icon.inactive}
+        //         />
+        //       );
+        //     }
+        //   },
+        //   tabBarLabel: ({focused, children}) => {
+        //     return (
+        //       <Text
+        //         style={{
+        //           ...AppTextStyles.label5,
+        //           color: !focused
+        //             ? AppColors.lightTheme.subtitle
+        //             : AppColors.primary,
+        //         }}
+        //         numberOfLines={1}>
+        //         {children}
+        //       </Text>
+        //     );
+        //   },
+        // })}
+      />
+    ))}
+  </Tab.Navigator>
   );
 };
 

@@ -153,7 +153,7 @@ const MarketTab = (props: Props) => {
   return (
     <View style={{flex: 1}}>
       {/* <MainAppHeader title={'MarketTab'} /> */}
-      <OptimizeHeavyScreen>
+      {/* <OptimizeHeavyScreen> */}
         <View style={{flex: 1, width: '100%'}}>
           <ListTag
             containerStyle={{backgroundColor: 'white', height: 48}}
@@ -371,7 +371,7 @@ const MarketTab = (props: Props) => {
             </ScrollView>
           </View>
         </View>
-      </OptimizeHeavyScreen>
+      {/* </OptimizeHeavyScreen> */}
     </View>
   );
 };

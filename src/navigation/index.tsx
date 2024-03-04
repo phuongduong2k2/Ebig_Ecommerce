@@ -14,6 +14,7 @@ import AppHeader from '../components/AppHeader';
 import AppSvg from '../components/AppSvg';
 import { AppIcons } from '../constants/AppIcons';
 import useAppNavigation from './RootStackParamList';
+import Test from '../../Test';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,11 +27,11 @@ const MainNavigation: React.FC = () => {
         flex: 1,
         width:"100%",
       }}>
-        <SafeAreaProvider>
-                  <AppHeader title="Market">
+        {/* <SafeAreaProvider> */}
+                  {/* <AppHeader title="Market">
             <><TouchableOpacity onPress={()=>navigation.goBack()}><AppSvg SvgSrc={AppIcons.arrow_left} size={24} /></TouchableOpacity></>
             <></>
-          </AppHeader>
+          </AppHeader> */}
         <Stack.Navigator
           initialRouteName={'BottomTabs'}
           screenOptions={{headerShown: false, orientation: 'portrait'}}>
@@ -51,7 +52,7 @@ const MainNavigation: React.FC = () => {
           <Stack.Screen name="CategoryScreen" component={CategoryScreen} />
           <Stack.Screen name="AuthorScreen" component={AuthorScreen} />
         </Stack.Navigator>
-        </SafeAreaProvider>
+        {/* </SafeAreaProvider> */}
     </View>
   );
 };
