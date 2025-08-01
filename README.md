@@ -1,4 +1,5 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+Figma: https://www.figma.com/design/jJ8l700qJV1Nrfwv2MhQSR/Ebig-Social_Mobile--Copy-?node-id=1-2&p=f&t=GrhyfzqU5Kb3soAe-0
+<img width="1530" height="1544" alt="CleanShot 2025-08-01 at 08 45 19@2x" src="https://github.com/user-attachments/assets/23583ec9-79f4-42ae-84b3-fd16d0e6b342" />
 
 # Getting Started
 
